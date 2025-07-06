@@ -1,0 +1,20 @@
+services:
+  python-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python-app
+    restart: unless-stopped
+    init: true
+    # env_file: ./.env  # Uncomment if .env file exists
+    ports:
+      - "5000:5000"  # Exposed by Dockerfile
+    # If your app requires a database or other services, add them below and set depends_on
+    # depends_on:
+    #   - postgres
+    # networks:
+    #   - appnet
+
+# networks:
+#   appnet:
+#     driver: bridge
